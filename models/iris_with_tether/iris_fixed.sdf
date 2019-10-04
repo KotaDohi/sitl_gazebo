@@ -1,0 +1,39 @@
+<sdf version='1.5'>
+  <model name='iris_with_tether'>
+    <include>
+      <uri>model://iris</uri>
+    </include>
+    <include>
+      <uri>model://simple_tether</uri>
+      <pose>-0.10 0 -0.04 0 3.1415 0</pose>
+    </include>
+
+    <link name='iris_center'>
+      <pose>0 0 -0.04 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='iris_center_joint' type="universal">
+      <child>iris_center</child>
+      <parent>iris::base_link</parent>
+    </joint>
+    <joint name="tether_iris_center_joint" type="universal">
+      <child>iris_center</child>
+      <parent>simple_tether::link_0</parent>
+    </joint>
+    <joint name="fixed_to_world" type="universal">
+      <child>simple_tether::link_19</child>
+      <parent>world</parent>
+    </joint>
+  </model>
+</sdf>

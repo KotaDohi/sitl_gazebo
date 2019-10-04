@@ -24,7 +24,7 @@
         </inertia>
       </inertial>
     </link>
-    <joint name='iris_center_joint' type='fixed'>
+    <joint name='iris_center_joint' type="universal">
       <child>iris_center</child>
       <parent>iris::base_link</parent>
     </joint>
